@@ -33,14 +33,17 @@ To run the game in a predefined demo mode, simply type:
 
 This runs the game with following the configuration:
 
-- First
-- second
-- Third
+- Board dimenson: 4x4
+- Winning condition: 4
+- Player starting: X
+- Player winning: O
+- Winning type: horizontal
+- Winning line: 1
 
 If you wish to choose the parameters of the simulated game, simply type:
 
 ----
-./runDemoWithInput.sh [dimension] [condition] [starter] [winner] [howWin] [whichLine]
+./runDemoWithInput.sh [dimension] [condition] [starter] [winner] [winType] [whichLine]
 ----
 
 For example:
