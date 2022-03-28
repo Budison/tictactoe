@@ -13,5 +13,6 @@ public class Demo {
     }
 
     public void run() {
+        System.out.println("Demo Mode");
     }
 }

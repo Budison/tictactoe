@@ -5,5 +5,6 @@ package com.github.budison.game;
  */
 public class Game {
     public void run() {
+        System.out.println("Normal Game");
     }
 }
