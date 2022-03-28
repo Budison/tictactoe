@@ -57,4 +57,30 @@ public class ArgsReader {
             throw new IllegalArgumentException("winningType argument is not valid!");
         }
     }
+
+    // Getters for test purposes
+
+    BoardDimension getBoardDimension() {
+        return boardDimension;
+    }
+
+    int getWinningCondition() {
+        return winningCondition;
+    }
+
+    Player getStartingPlayer() {
+        return startingPlayer;
+    }
+
+    Player getWinningPlayer() {
+        return winningPlayer;
+    }
+
+    WinningType getWinningType() {
+        return winningType;
+    }
+
+    int getWinningLine() {
+        return winningLine;
+    }
 }
