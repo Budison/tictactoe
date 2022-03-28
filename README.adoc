@@ -31,10 +31,16 @@ To run the game in a predefined demo mode, simply type:
 ./runDemo.sh
 ----
 
+This runs the game with following the configuration:
+
+- First
+- second
+- Third
+
 If you wish to choose the parameters of the simulated game, simply type:
 
 ----
-./runDemoWithInput.sh [dimension] [winningCondition] [whoStarts] [whoShouldWin] [howShouldWin] [whichLine]
+./runDemoWithInput.sh [dimension] [condition] [starter] [winner] [howWin] [whichLine]
 ----
 
 For example:
