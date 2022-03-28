@@ -9,4 +9,11 @@ This project is an implementation of the popular game Tic-Tac-Toe.
 
 == How to run the game
 
+=== Game mode
+
+Run...
+
+=== Demonstration mode
+
+Run...
 
