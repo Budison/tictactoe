@@ -9,11 +9,36 @@ This project is an implementation of the popular game Tic-Tac-Toe.
 
 == How to run the game
 
+=== Change Permission
+
+For every run script you need to have the execution permission for the file. Under linux this can be done with following command:
+----
+chmod 755 filename
+----
+
 === Game mode
 
-Run...
+To run the game in the normal game mode simply type:
+
+----
+./runGame.sh
+----
 
 === Demonstration mode
 
-Run...
+To run the game in a predefined demo mode, simply type:
+----
+./runDemo.sh
+----
+
+If you wish to choose the parameters of the simulated game, simply type:
+
+----
+./runDemoWithInput.sh [dimension] [winningCondition] [whoStarts] [whoShouldWin] [howShouldWin] [whichLine]
+----
+
+For example:
+----
+./runDemoWithInput.sh 3 3 X O diagonal 2
+----
 
