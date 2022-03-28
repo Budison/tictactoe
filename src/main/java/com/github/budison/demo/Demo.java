@@ -1,6 +1,6 @@
 package com.github.budison.demo;
 
-import com.github.budison.io.ArgsReader;
+import com.github.budison.ArgsReader;
 
 /**
  * @author Kevin Nowak
