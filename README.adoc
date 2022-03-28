@@ -1,0 +1,12 @@
+= Tic-Tac-Toe (2nd iteration)
+
+This project is an implementation of the popular game Tic-Tac-Toe.
+
+== Versions used
+
+- Java 17.0.2
+- Maven 3.8.5
+
+== How to run the game
+
+
