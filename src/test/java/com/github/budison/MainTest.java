@@ -4,8 +4,9 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
+
 @Test
-class MainTest {   
+public class MainTest {
     public void sampleTrueTest() {
         assertTrue(true);
     }
