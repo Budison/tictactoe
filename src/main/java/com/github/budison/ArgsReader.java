@@ -58,7 +58,7 @@ public class ArgsReader {
         }
     }
 
-    // Getters for test purposes
+    // Getters (only) used for testing purposes
 
     BoardDimension getBoardDimension() {
         return boardDimension;

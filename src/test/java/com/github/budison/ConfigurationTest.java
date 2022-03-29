@@ -24,8 +24,8 @@ public class ConfigurationTest {
         // Then
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(runMode1, RunMode.NORMAL);
-        softAssert.assertEquals(runMode2, RunMode.DEMO_NO_INPUT);
-        softAssert.assertEquals(runMode3, RunMode.DEMO_WITH_INPUT);
+        softAssert.assertEquals(runMode2, RunMode.DEMO_NO_ARGS);
+        softAssert.assertEquals(runMode3, RunMode.DEMO_WITH_ARGS);
         softAssert.assertAll();
     }
 

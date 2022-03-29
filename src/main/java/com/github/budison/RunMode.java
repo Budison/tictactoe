@@ -5,6 +5,6 @@ package com.github.budison;
  */
 enum RunMode {
     NORMAL,
-    DEMO_NO_INPUT,
-    DEMO_WITH_INPUT
+    DEMO_NO_ARGS,
+    DEMO_WITH_ARGS
 }
