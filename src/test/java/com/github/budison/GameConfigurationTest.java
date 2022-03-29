@@ -82,4 +82,60 @@ public class GameConfigurationTest {
         assertEquals(gameEn.getLanguageType(), english);
         assertEquals(gameDe.getLanguageType(), german);
     }
+
+    public void testCreateWinningTypeByString() {
+        // Given
+        String[] args1 = {"3", "3", "X", "O", "horizontal", "3"};
+        String[] args2 = {"3", "3", "X", "O", "vertical", "3"};
+        String[] args3 = {"3", "3", "X", "O", "antidiagonal", "3"};
+        String[] args4 = {"3", "3", "X", "O", "diagonal", "3"};
+        String[] args5 = {"3", "3", "X", "O", "anti diagonal", "3"};
+        // When
+        ArgsReader argsReader1 = new ArgsReader(args1);
+        ArgsReader argsReader2 = new ArgsReader(args2);
+        ArgsReader argsReader3 = new ArgsReader(args3);
+        ArgsReader argsReader4 = new ArgsReader(args4);
+        ArgsReader argsReader5 = new ArgsReader(args5);
+        // Then
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(argsReader1.getWinningType(), WinningType.HORIZONTAL);
+        softAssert.assertEquals(argsReader2.getWinningType(), WinningType.VERTICAL);
+        softAssert.assertEquals(argsReader3.getWinningType(), WinningType.ANTI_DIAGONAL);
+        softAssert.assertEquals(argsReader4.getWinningType(), WinningType.DIAGONAL);
+        softAssert.assertEquals(argsReader5.getWinningType(), WinningType.ANTI_DIAGONAL);
+        softAssert.assertAll();
+    }
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testCreateWinningTypeByStringException() {
+        // Given
+        String[] args = {"3", "3", "X", "O", "lol", "3"};
+        // Then throws IllegalArgumentException
+        ArgsReader argsReader = new ArgsReader(args);
+    }
+
+    public void testCreatePlayerByString() {
+        // Given
+        String[] args = {"3", "3", "x", "o", "diagonal", "3"};
+        // When
+        ArgsReader argsReader = new ArgsReader(args);
+        // Then
+        assertTrue(argsReader.getStartingPlayer() instanceof PlayerX);
+    }
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testCreatePlayerByStringException() {
+        // Given
+        String[] args = {"3", "3", "A", "O", "diagonal", "3"};
+        // Then throws IllegalArgumentException
+        ArgsReader argsReader = new ArgsReader(args);
+    }
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testArgsReaderConstructorExcpetion() {
+        // Given
+        String[] args = {"3", "3"};
+        // Then throws IllegalArgumentException
+        ArgsReader argsReader = new ArgsReader(args);
+    }
 }
