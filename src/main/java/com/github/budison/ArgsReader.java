@@ -4,6 +4,7 @@ import com.github.budison.board.BoardDimension;
 
 /**
  * @author Kevin Nowak
+ * Class for reading input form the String[] args
  */
 public class ArgsReader {
     BoardDimension boardDimension;
