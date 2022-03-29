@@ -1,8 +1,6 @@
 package com.github.budison;
 
 import com.github.budison.board.BoardDimension;
-import com.github.budison.player.PlayerO;
-import com.github.budison.player.PlayerX;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 

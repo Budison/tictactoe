@@ -1,5 +1,6 @@
 package com.github.budison;
 
+import com.github.budison.board.BoardDimension;
 import com.github.budison.demo.Demo;
 import com.github.budison.game.Game;
 

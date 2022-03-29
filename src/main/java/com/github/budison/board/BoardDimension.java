@@ -8,7 +8,12 @@ import java.util.Objects;
 public class BoardDimension {
     int boardDimension;
     public BoardDimension(String boardDimensionString) {
-        this.boardDimension = Integer.parseInt(boardDimensionString);
+        try {
+            this.boardDimension = Integer.parseInt(boardDimensionString);
+        } catch (NumberFormatException numberFormatException) {
+            System.err.println("BoardDimension: Provided String could not be formatted to int.");
+        }
+
     }
     public BoardDimension(int boardDimension) { this.boardDimension = boardDimension; }
 

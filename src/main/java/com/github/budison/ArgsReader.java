@@ -1,9 +1,6 @@
 package com.github.budison;
 
 import com.github.budison.board.BoardDimension;
-import com.github.budison.player.Player;
-import com.github.budison.player.PlayerO;
-import com.github.budison.player.PlayerX;
 
 /**
  * @author Kevin Nowak
@@ -30,10 +27,10 @@ public class ArgsReader {
 
     Player createPlayerByString(String player) {
         if(player.equalsIgnoreCase("O")) {
-            return new PlayerO();
+            return new PlayerO("PlayerO", 'O');
         }
         else if(player.equalsIgnoreCase("X")) {
-            return new PlayerX();
+            return new PlayerX("PlayerX", 'X');
         }
         else {
             throw new IllegalArgumentException("startingPlayer or winningPlayer argument is either X nor O!");
