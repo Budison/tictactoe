@@ -1,6 +1,7 @@
 package com.github.budison;
 
 import com.github.budison.board.BoardDimension;
+import com.github.budison.game.Game;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -68,5 +69,17 @@ public class GameConfigurationTest {
         softAssert.assertEquals(playerName, "Kevin");
         softAssert.assertNotEquals(playerSign, 'O');
         softAssert.assertAll();
+    }
+
+    public void testIfGameHasCorrectLanguage() {
+        // Given
+        Game gameEn = new Game(LanguageType.EN);
+        Game gameDe = new Game(LanguageType.DE);
+        // When
+        LanguageType english = LanguageType.EN;
+        LanguageType german = LanguageType.DE;
+        // Then
+        assertEquals(gameEn.getLanguageType(), english);
+        assertEquals(gameDe.getLanguageType(), german);
     }
 }

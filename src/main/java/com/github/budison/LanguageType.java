@@ -3,7 +3,7 @@ package com.github.budison;
 /**
  * @author Kevin Nowak
  */
-enum LanguageType {
+public enum LanguageType {
     EN,
     DE
 }
