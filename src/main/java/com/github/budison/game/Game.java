@@ -3,6 +3,7 @@ package com.github.budison.game;
 import com.github.budison.LanguageType;
 import com.github.budison.board.GameBoard;
 import com.github.budison.referee.Referee;
+import com.github.budison.game.Game;
 
 /**
  * @author Kevin Nowak
@@ -35,7 +36,5 @@ public class Game {
 
     // Getters (only) used for testing purposes
 
-    public LanguageType getLanguageType() {
-        return languageType;
-    }
+    public LanguageType getLanguageType() { return languageType; }
 }

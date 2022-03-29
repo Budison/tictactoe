@@ -6,7 +6,7 @@ import java.util.Objects;
  * @author Kevin Nowak
  */
 public class BoardDimension {
-    int boardDimension;
+    private int boardDimension;
     public BoardDimension(String boardDimensionString) {
         try {
             this.boardDimension = Integer.parseInt(boardDimensionString);

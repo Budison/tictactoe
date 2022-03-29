@@ -1,10 +1,5 @@
 package com.github.budison.game;
 
-import com.github.budison.LanguageType;
-import com.github.budison.Player;
-import com.github.budison.PlayerO;
-import com.github.budison.PlayerX;
-import com.github.budison.board.BoardDimension;
 import com.github.budison.io.IOController;
 
 /**

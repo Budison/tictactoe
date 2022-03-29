@@ -29,5 +29,5 @@ public class IOController {
 
     public Player readStartingPlayer() { return this.ioGameConfiguration.getStartingPlayer(); }
 
-    public BoardDimension readBoardDimension() { return this.ioGameConfiguration.getBaordDimension(); }
+    public BoardDimension readBoardDimension() { return this.ioGameConfiguration.getBoardDimension(); }
 }

@@ -20,6 +20,11 @@ class IOGameConfiguration {
                 Please choose a language / Bitte wähle eine Sprache: 
                 """;
         System.out.print(prompt);
+        int inputInt = getInputInt();
+        return inputInt == 2 ? LanguageType.DE : LanguageType.EN;
+    }
+
+    private int getInputInt() {
         Scanner in = new Scanner(System.in);
         int inputInt = 1;
         boolean repeat = true;
@@ -36,7 +41,7 @@ class IOGameConfiguration {
                 repeat = true;
             }
         }
-        return inputInt == 2 ? LanguageType.DE : LanguageType.EN;
+        return inputInt;
     }
 
     PlayerX getPlayerX() {
@@ -80,7 +85,7 @@ class IOGameConfiguration {
         return null;
     }
 
-    BoardDimension getBaordDimension() {
+    BoardDimension getBoardDimension() {
         return null;
     }
 }

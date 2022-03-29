@@ -88,14 +88,16 @@ public class GameConfigurationTest {
         String[] args1 = {"3", "3", "X", "O", "horizontal", "3"};
         String[] args2 = {"3", "3", "X", "O", "vertical", "3"};
         String[] args3 = {"3", "3", "X", "O", "antidiagonal", "3"};
-        String[] args4 = {"3", "3", "X", "O", "diagonal", "3"};
-        String[] args5 = {"3", "3", "X", "O", "anti diagonal", "3"};
+        String[] args4 = {"3", "3", "X", "O", "DIAGONAL", "3"};
+        String[] args5 = {"3", "3", "X", "O", "AnTi diagonal", "3"};
+        String[] args6 = {"3", "3", "X", "O", "anti-Diagonal", "3"};
         // When
         ArgsReader argsReader1 = new ArgsReader(args1);
         ArgsReader argsReader2 = new ArgsReader(args2);
         ArgsReader argsReader3 = new ArgsReader(args3);
         ArgsReader argsReader4 = new ArgsReader(args4);
         ArgsReader argsReader5 = new ArgsReader(args5);
+        ArgsReader argsReader6 = new ArgsReader(args6);
         // Then
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(argsReader1.getWinningType(), WinningType.HORIZONTAL);
@@ -103,6 +105,7 @@ public class GameConfigurationTest {
         softAssert.assertEquals(argsReader3.getWinningType(), WinningType.ANTI_DIAGONAL);
         softAssert.assertEquals(argsReader4.getWinningType(), WinningType.DIAGONAL);
         softAssert.assertEquals(argsReader5.getWinningType(), WinningType.ANTI_DIAGONAL);
+        softAssert.assertEquals(argsReader6.getWinningType(), WinningType.ANTI_DIAGONAL);
         softAssert.assertAll();
     }
 

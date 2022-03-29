@@ -2,6 +2,8 @@ package com.github.budison;
 
 import com.github.budison.board.BoardDimension;
 
+import java.util.Locale;
+
 /**
  * @author Kevin Nowak
  * Class for reading input form the String[] args
@@ -39,46 +41,26 @@ public class ArgsReader {
     }
 
     WinningType createWinningTypeByString(String winningType) {
-        if(winningType.equalsIgnoreCase("horizontal")) {
-            return WinningType.HORIZONTAL;
-        }
-        else if(winningType.equalsIgnoreCase("vertical")) {
-            return WinningType.VERTICAL;
-        }
-        else if(winningType.equalsIgnoreCase("diagonal")) {
-            return WinningType.DIAGONAL;
-        }
-        else if(winningType.equalsIgnoreCase("antidiagonal") || winningType.equalsIgnoreCase("anti diagonal")) {
-            return WinningType.ANTI_DIAGONAL;
-        }
-        else {
-            throw new IllegalArgumentException("winningType argument is not valid!");
-        }
+        return switch (winningType.toLowerCase()) {
+            case "horizontal" -> WinningType.HORIZONTAL;
+            case "vertical" -> WinningType.VERTICAL;
+            case "diagonal" -> WinningType.DIAGONAL;
+            case "antidiagonal", "anti diagonal", "anti-diagonal" -> WinningType.ANTI_DIAGONAL;
+            default -> throw new IllegalArgumentException("winningType argument is not valid!");
+        };
     }
 
     // Getters (only) used for testing purposes
 
-    BoardDimension getBoardDimension() {
-        return boardDimension;
-    }
+    BoardDimension getBoardDimension() { return boardDimension; }
 
-    int getWinningCondition() {
-        return winningCondition;
-    }
+    int getWinningCondition() { return winningCondition; }
 
-    Player getStartingPlayer() {
-        return startingPlayer;
-    }
+    Player getStartingPlayer() { return startingPlayer; }
 
-    Player getWinningPlayer() {
-        return winningPlayer;
-    }
+    Player getWinningPlayer() { return winningPlayer; }
 
-    WinningType getWinningType() {
-        return winningType;
-    }
+    WinningType getWinningType() { return winningType; }
 
-    int getWinningLine() {
-        return winningLine;
-    }
+    int getWinningLine() { return winningLine; }
 }
