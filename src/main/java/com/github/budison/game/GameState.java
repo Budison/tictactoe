@@ -3,5 +3,10 @@ package com.github.budison.game;
 /**
  * @author Kevin Nowak
  */
-class GameState {
+enum GameState {
+    CONFIGURATION,
+    ROUND_1,
+    ROUND_2,
+    ROUND_3,
+    FINISHED
 }

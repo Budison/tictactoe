@@ -22,7 +22,7 @@ class Main {
             }
             default -> {
                 Game game = new Game();
-                game.configureGame();
+                game.startConfiguration();
             }
         }
     }

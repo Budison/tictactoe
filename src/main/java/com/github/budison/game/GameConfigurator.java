@@ -5,54 +5,24 @@ import com.github.budison.Player;
 import com.github.budison.PlayerO;
 import com.github.budison.PlayerX;
 import com.github.budison.board.BoardDimension;
-import com.github.budison.io.ioController;
+import com.github.budison.io.IOController;
 
 /**
  * @author Kevin Nowak
  */
 class GameConfigurator {
     GameConfigDataHolder gameConfigDataHolder;
-    ioController ioController;
-
+    IOController ioController;
 
     GameConfigDataHolder configureGame() {
-        this.ioController = new ioController();
+        this.ioController = new IOController();
         return this.gameConfigDataHolder = new GameConfigDataHolder(
-          readLanguageType(),
-          readPlayerX(),
-          readPlayerO(),
-          readStartingPlayer(),
-          readBoardDimension(),
-          readWinningCondition()
+          this.ioController.readLanguageType(),
+          this.ioController.readPlayerX() ,
+          this.ioController.readPlayerO(),
+          this.ioController.readStartingPlayer(),
+          this.ioController.readBoardDimension(),
+          this.ioController.readWinningCondition()
         );
-    }
-
-    private int readWinningCondition() {
-        return this.ioController.readWinningCondition();
-    }
-
-    private BoardDimension readBoardDimension() {
-        // TODO
-        return null;
-    }
-
-    private Player readStartingPlayer() {
-        // TODO
-        return null;
-    }
-
-    private PlayerO readPlayerO() {
-        // TODO
-        return null;
-    }
-
-    private PlayerX readPlayerX() {
-        // TODO
-        return null;
-    }
-
-    private LanguageType readLanguageType() {
-        // TODO
-        return this.ioController.readLanguageType();
     }
 }
