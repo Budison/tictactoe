@@ -18,7 +18,7 @@ chmod 755 filename
 
 === Game mode
 
-To run the game in the normal game mode simply type:
+To run the game in the normal 1v1 game mode simply type:
 
 ----
 ./runGame.sh
@@ -33,7 +33,7 @@ To run the game in a predefined demo mode, simply type:
 
 This runs the game with following the configuration:
 
-- Board dimenson: 4x4
+- Board dimension: 4x4
 - Winning condition: 4
 - Player starting: X
 - Player winning: O
