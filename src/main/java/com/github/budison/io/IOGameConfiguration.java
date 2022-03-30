@@ -5,7 +5,6 @@ import com.github.budison.Player;
 import com.github.budison.PlayerO;
 import com.github.budison.PlayerX;
 import com.github.budison.board.BoardDimension;
-
 import java.util.Scanner;
 
 /**
@@ -20,8 +19,7 @@ class IOGameConfiguration {
                 Please choose a language / Bitte wähle eine Sprache: 
                 """;
         System.out.print(prompt);
-        int inputInt = getInputInt();
-        return inputInt == 2 ? LanguageType.DE : LanguageType.EN;
+        return getInputInt() == 2 ? LanguageType.DE : LanguageType.EN;
     }
 
     private int getInputInt() {
@@ -56,8 +54,7 @@ class IOGameConfiguration {
                     """;
         }
         System.out.print(prompt);
-        Scanner in = new Scanner(System.in);
-        return new PlayerX(in.next(), 'X');
+        return new PlayerX(new Scanner(System.in).next(), 'X');
     }
 
     PlayerO getPlayerO() {
@@ -72,20 +69,21 @@ class IOGameConfiguration {
                     """;
         }
         System.out.print(prompt);
-        Scanner in = new Scanner(System.in);
-        return new PlayerO(in.next(), 'O');
+        return new PlayerO(new Scanner(System.in).next(), 'O');
     }
 
     int getWinningCondition() {
+        // TODO
         return 0;
     }
 
-
     Player getStartingPlayer() {
+        // TODO
         return null;
     }
 
     BoardDimension getBoardDimension() {
+        // TODO
         return null;
     }
 }
