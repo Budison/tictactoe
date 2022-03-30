@@ -17,6 +17,10 @@ public class IOController {
         this.ioGameConfiguration = new IOGameConfiguration();
     }
 
+    public String getStateFinishedMessage(String gameState) {
+        return languageType == LanguageType.EN ? System.lineSeparator() + gameState + " FINISHED!" + System.lineSeparator() : System.lineSeparator().repeat(2);
+    }
+
     //--------- IO-Methods for GameConfigurator ---------//
 
     public LanguageType readLanguageType() { return languageType = ioGameConfiguration.getLanguageType(); }
@@ -30,4 +34,5 @@ public class IOController {
     public Player readStartingPlayer() { return this.ioGameConfiguration.getStartingPlayer(); }
 
     public BoardDimension readBoardDimension() { return this.ioGameConfiguration.getBoardDimension(); }
+
 }

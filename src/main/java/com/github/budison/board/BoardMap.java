@@ -1,5 +1,7 @@
 package com.github.budison.board;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -9,6 +11,7 @@ import java.util.TreeMap;
 class BoardMap {
     private final int boardSize;
     Map<Integer, Cell> boardMap;
+
 
     BoardMap(BoardDimension boardDimension) {
         this.boardSize = boardDimension.value() * boardDimension.value();
@@ -23,8 +26,8 @@ class BoardMap {
         return ret;
     }
 
-    Map<Integer, Cell> changeCellValue(CellType cellType, int index) {
+    BoardMap changeCellValue(CellType cellType, int index) {
         boardMap.computeIfPresent(index, (integer, cell) -> new Cell(cellType, index));
-        return boardMap;
+        return this;
     }
 }

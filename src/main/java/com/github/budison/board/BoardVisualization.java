@@ -1,5 +1,7 @@
 package com.github.budison.board;
 
+import java.util.Map;
+
 /**
  * @author Kevin Nowak
  */
@@ -27,6 +29,11 @@ class BoardVisualization {
         }
         stringBuilder.append("|").append(System.lineSeparator()).append(makeDivider());
         return stringBuilder.toString();
+    }
+    
+    BoardVisualization updateBoard(BoardMap boardMap) {
+        this.boardVisualization = this.createBoardVisualization(boardMap);
+        return this;
     }
 
     private String makeDivider() {
