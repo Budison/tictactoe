@@ -1,4 +1,4 @@
-package com.github.budison.demo;
+package com.github.budison;
 
 import com.github.budison.ArgsReader;
 

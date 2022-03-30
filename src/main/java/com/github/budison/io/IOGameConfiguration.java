@@ -113,7 +113,7 @@ class IOGameConfiguration {
         }
     }
 
-    //--------- Read boardDimension form user ---------//
+    //--------- Read value form user ---------//
 
     BoardDimension getBoardDimension() {
         String prompt;

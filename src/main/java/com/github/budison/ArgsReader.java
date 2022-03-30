@@ -4,6 +4,7 @@ import com.github.budison.board.BoardDimension;
 
 import java.util.Locale;
 
+
 /**
  * @author Kevin Nowak
  * Class for reading input form the String[] args
@@ -20,12 +21,22 @@ public class ArgsReader {
         if(args.length != 6) {
             throw new IllegalArgumentException("Exactly 6 parameters are required!");
         }
-        this.boardDimension = new BoardDimension(args[0]);
+        this.boardDimension = new BoardDimension(createIntByString(args[0]));
         this.winningCondition = Integer.parseInt(args[1]);
         this.startingPlayer = createPlayerByString(args[2]);
         this.winningPlayer = createPlayerByString(args[3]);
         this.winningType = createWinningTypeByString(args[4]);
         this.winningLine = Integer.parseInt(args[5]);
+    }
+
+    private int createIntByString(String arg) {
+        int ret = 3;
+        try {
+            ret = Integer.parseInt(arg);
+        } catch (NumberFormatException numberFormatException) {
+            System.err.println("BoardDimension: Provided String could not be formatted to int.");
+        }
+        return ret;
     }
 
     Player createPlayerByString(String player) {
