@@ -3,7 +3,7 @@ package com.github.budison.board;
 /**
  * @author Kevin Nowak
  */
-enum CellType {
+public enum CellType {
     X,
     O,
     EMPTY

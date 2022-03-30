@@ -8,5 +8,5 @@ public enum GameState {
     ROUND1,
     ROUND2,
     ROUND3,
-    FINISHED
+    GAME
 }

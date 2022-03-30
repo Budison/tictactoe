@@ -22,4 +22,7 @@ record Cell(CellType cellType, int index) {
             default -> " ".repeat(5);
         };
     }
+    boolean checkIfFree() {
+        return cellType == CellType.EMPTY;
+    }
 }

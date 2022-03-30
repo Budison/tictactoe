@@ -22,6 +22,9 @@ class Main {
             default -> {
                 Game game = new Game();
                 game.startConfiguration();
+                do {
+                    game.startPlaying();
+                } while (game.playMore());
             }
         }
     }

@@ -5,6 +5,7 @@ import com.github.budison.Player;
 import com.github.budison.PlayerO;
 import com.github.budison.PlayerX;
 import com.github.budison.board.BoardDimension;
+import com.github.budison.board.GameBoard;
 
 /**
  * @author Kevin Nowak
@@ -12,9 +13,11 @@ import com.github.budison.board.BoardDimension;
 public class IOController {
     static LanguageType languageType = LanguageType.EN;
     private final IOGameConfiguration ioGameConfiguration;
+    private final IOGamePlay ioGamePlay;
 
     public IOController() {
         this.ioGameConfiguration = new IOGameConfiguration();
+        this.ioGamePlay = new IOGamePlay();
     }
 
     public String getStateFinishedMessage(String gameState) {
@@ -35,4 +38,13 @@ public class IOController {
 
     public BoardDimension readBoardDimension() { return this.ioGameConfiguration.getBoardDimension(); }
 
+    //--------- IO-Methods for GamePlay ---------//
+
+    public int readPlayerMove(Player player, int boardSize) {
+        return this.ioGamePlay.getPlayerMove(player, boardSize);
+    }
+
+    public int getValidIndex() {
+        return this.ioGamePlay.getPlayerMoveScanner();
+    }
 }
