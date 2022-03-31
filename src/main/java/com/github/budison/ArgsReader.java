@@ -2,9 +2,6 @@ package com.github.budison;
 
 import com.github.budison.board.BoardDimension;
 
-import java.util.Locale;
-
-
 /**
  * @author Kevin Nowak
  * Class for reading input form the String[] args
@@ -21,12 +18,26 @@ public class ArgsReader {
         if(args.length != 6) {
             throw new IllegalArgumentException("Exactly 6 parameters are required!");
         }
-        this.boardDimension = new BoardDimension(createIntByString(args[0]));
-        this.winningCondition = Integer.parseInt(args[1]);
+        this.boardDimension = new BoardDimension(checkBd(createIntByString(args[0])));
+        this.winningCondition = checkWc(Integer.parseInt(args[1]));
         this.startingPlayer = createPlayerByString(args[2]);
         this.winningPlayer = createPlayerByString(args[3]);
         this.winningType = createWinningTypeByString(args[4]);
-        this.winningLine = Integer.parseInt(args[5]);
+        this.winningLine = checkWl(Integer.parseInt(args[5]));
+    }
+
+    private int checkBd(int i) {
+        if( i >= 3 && i <= 31) return i;
+        else {
+            throw new IllegalArgumentException("boardDimension must be within 3 and 31!");
+        }
+    }
+
+    private int checkWc(int i) {
+        if( i >= 3 && i <= this.boardDimension.value()) return i;
+        else {
+            throw new IllegalArgumentException("winningCondition must be within board dimension!");
+        }
     }
 
     private int createIntByString(String arg) {
@@ -37,6 +48,13 @@ public class ArgsReader {
             System.err.println("BoardDimension: Provided String could not be formatted to int.");
         }
         return ret;
+    }
+
+    private int checkWl(int i) {
+        if(i >= 1 && i <= this.boardDimension.value()) return i;
+        else {
+            throw new IllegalArgumentException("winningLine must be within board dimension!");
+        }
     }
 
     Player createPlayerByString(String player) {
@@ -63,15 +81,15 @@ public class ArgsReader {
 
     // Getters (only) used for testing purposes
 
-    BoardDimension getBoardDimension() { return boardDimension; }
+    public BoardDimension getBoardDimension() { return boardDimension; }
 
-    int getWinningCondition() { return winningCondition; }
+    public int getWinningCondition() { return winningCondition; }
 
-    Player getStartingPlayer() { return startingPlayer; }
+    public Player getStartingPlayer() { return startingPlayer; }
 
-    Player getWinningPlayer() { return winningPlayer; }
+    public Player getWinningPlayer() { return winningPlayer; }
 
-    WinningType getWinningType() { return winningType; }
+    public WinningType getWinningType() { return winningType; }
 
-    int getWinningLine() { return winningLine; }
+    public int getWinningLine() { return winningLine; }
 }

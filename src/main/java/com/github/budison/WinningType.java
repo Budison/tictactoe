@@ -3,7 +3,7 @@ package com.github.budison;
 /**
  * @author Kevin Nowak
  */
-enum WinningType {
+public enum WinningType {
     HORIZONTAL,
     VERTICAL,
     DIAGONAL,

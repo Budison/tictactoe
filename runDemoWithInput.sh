@@ -14,5 +14,5 @@ then
 fi
 
 
-mvn clean package
+# mvn clean package
 java -jar target/*.jar $1 $2 $3 $4 $5 $6
