@@ -33,6 +33,7 @@ class BoardVisualization {
     
     BoardVisualization updateBoard(BoardMap boardMap) {
         this.boardVisualization = this.createBoardVisualization(boardMap);
+        this.boardMap = boardMap;
         return this;
     }
 

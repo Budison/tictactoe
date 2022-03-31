@@ -7,6 +7,8 @@ import com.github.budison.PlayerX;
 import com.github.budison.board.BoardDimension;
 import com.github.budison.board.GameBoard;
 
+import java.util.Map;
+
 /**
  * @author Kevin Nowak
  */
@@ -18,6 +20,10 @@ public class IOController {
     public IOController() {
         this.ioGameConfiguration = new IOGameConfiguration();
         this.ioGamePlay = new IOGamePlay();
+    }
+
+    public String getStateStartedMessage(String gameState) {
+        return languageType == LanguageType.EN ? System.lineSeparator() + gameState + " STARTED!" + System.lineSeparator() : System.lineSeparator().repeat(2);
     }
 
     public String getStateFinishedMessage(String gameState) {
@@ -40,11 +46,19 @@ public class IOController {
 
     //--------- IO-Methods for GamePlay ---------//
 
-    public int readPlayerMove(Player player, int boardSize) {
-        return this.ioGamePlay.getPlayerMove(player, boardSize);
+    public int readPlayerMove(Player player, Map<Integer, String> boardMap) {
+        return this.ioGamePlay.getPlayerMove(player, boardMap);
     }
 
-    public int getValidIndex() {
-        return this.ioGamePlay.getPlayerMoveScanner();
+    public String printWinningMessage(Player starter) {
+        return this.ioGamePlay.getWinningMessage(starter);
+    }
+
+    public String printDrawMessage() {
+        return this.ioGamePlay.getDrawMessage();
+    }
+
+    public boolean playMore() {
+        return this.ioGamePlay.playMore();
     }
 }

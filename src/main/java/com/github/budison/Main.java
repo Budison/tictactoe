@@ -25,6 +25,7 @@ class Main {
                 do {
                     game.startPlaying();
                 } while (game.playMore());
+                System.out.println("Ciao!");
             }
         }
     }

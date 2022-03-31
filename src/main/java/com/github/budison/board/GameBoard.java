@@ -21,10 +21,6 @@ public class GameBoard {
     }
 
     public GameBoard makeMove(Player player, int index) {
-//        while(!this.boardMap.boardMap.get(index).checkIfFree()) {
-//            index = this.ioController.getValidIndex();
-//        }
-
         if(player instanceof PlayerX) {
             this.boardVisualization = this.boardVisualization.updateBoard((this.boardMap.changeCellValue(CellType.X, index)));
         }
@@ -37,5 +33,19 @@ public class GameBoard {
     @Override
     public String toString() {
         return this.boardVisualization.toString();
+    }
+
+    public Map<Integer, String> getCopyOfBoardMap() {
+        return this.boardMap.getCopy();
+    }
+
+    public boolean checkWinningCondition(Player starter, int winningCondition) {
+        return this.boardMap.check(starter, winningCondition);
+    }
+
+    public GameBoard reset() {
+        this.boardMap = this.boardMap.reset();
+        this.boardVisualization = this.boardVisualization.updateBoard(this.boardMap);
+        return this;
     }
 }
