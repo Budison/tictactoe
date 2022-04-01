@@ -1,6 +1,6 @@
 package com.github.budison;
 
-import com.github.budison.demo.Demo;
+import com.github.budison.game.Demo;
 import com.github.budison.game.Game;
 
 /**
@@ -13,16 +13,20 @@ class Main {
             case DEMO_NO_ARGS -> {
                 ArgsReader argsReader = new ArgsReader(new String[] {"4", "4", "X", "O", "horizontal", "1"});
                 Demo demo = new Demo(argsReader);
-                demo.run();
+                demo.startPlaying();
             }
             case DEMO_WITH_ARGS -> {
                 ArgsReader argsReader = new ArgsReader(args);
                 Demo demo = new Demo(argsReader);
-                demo.run();
+                demo.startPlaying();
             }
             default -> {
                 Game game = new Game();
                 game.startConfiguration();
+                do {
+                    game.startPlaying();
+                } while (game.playMore());
+                System.out.println("Ciao!");
             }
         }
     }

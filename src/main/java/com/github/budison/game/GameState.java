@@ -3,10 +3,10 @@ package com.github.budison.game;
 /**
  * @author Kevin Nowak
  */
-enum GameState {
+public enum GameState {
     CONFIGURATION,
-    ROUND_1,
-    ROUND_2,
-    ROUND_3,
-    FINISHED
+    ROUND1,
+    ROUND2,
+    ROUND3,
+    GAME
 }

@@ -3,4 +3,8 @@ package com.github.budison.board;
 /**
  * @author Kevin Nowak
  */
-public record BoardDimension(int value) {}
+public enum CellType {
+    X,
+    O,
+    EMPTY
+}
