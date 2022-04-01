@@ -4,7 +4,6 @@ import com.github.budison.*;
 import com.github.budison.board.GameBoard;
 import com.github.budison.io.IOController;
 
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -16,10 +15,7 @@ public class Demo {
     GameState gameState;
     GameBoard gameBoard;
     IOController ioController;
-    private int roundCount = 1;
-    private int boardSize;
-    private Scoreboard scoreboard;
-    WinningMoves winningMoves;
+    DemoMoves demoMoves;
 
     public Demo(ArgsReader argsReader) {
         this.demoConfigDataHolder = new DemoConfigDataHolder(
@@ -32,12 +28,10 @@ public class Demo {
                 argsReader.getWinningType(),
                 argsReader.getWinningLine()
         );
-        this.winningMoves = new WinningMoves(this.demoConfigDataHolder);
+        this.demoMoves = new DemoMoves(this.demoConfigDataHolder);
         this.gameState = GameState.CONFIGURATION;
         this.gameBoard = new GameBoard(this.demoConfigDataHolder.boardDimension());
         this.ioController = new IOController();
-        this.boardSize = this.demoConfigDataHolder.boardDimension().value() * this.demoConfigDataHolder.boardDimension().value();
-        this.scoreboard = new Scoreboard(this.demoConfigDataHolder.playerO(), this.demoConfigDataHolder.playerX());
         System.out.println(this.ioController.getStateFinishedMessage(this.gameState.toString()));
     }
 
@@ -49,15 +43,33 @@ public class Demo {
     }
 
     private void playRound() {
-        this.winningMoves.calculateHorizontalMovesWinner();
-        this.winningMoves.calculateHorizontalMovesLoser(this.winningMoves.winnerMoves);
+        switch (this.demoConfigDataHolder.winningType()) {
+            case HORIZONTAL -> {
+                this.demoMoves.winnerMoves = this.demoMoves.calculateHorizontalMovesWinner();
+                this.demoMoves.loserMoves = this.demoMoves.calculateMovesLoser(this.demoMoves.winnerMoves);
+            }
+            case VERTICAL -> {
+                this.demoMoves.winnerMoves = this.demoMoves.calculateVerticalMovesWinner();
+                this.demoMoves.loserMoves = this.demoMoves.calculateMovesLoser(this.demoMoves.winnerMoves);
+            }
+            case DIAGONAL -> {
+                this.demoMoves.winnerMoves = this.demoMoves.calculateDiagonalMovesWinner();
+                this.demoMoves.loserMoves = this.demoMoves.calculateMovesLoser(this.demoMoves.winnerMoves);
+            }
+            case ANTI_DIAGONAL -> {
+                this.demoMoves.winnerMoves = this.demoMoves.calculateAntiDiagonalMovesWinner();
+                this.demoMoves.loserMoves = this.demoMoves.calculateMovesLoser(this.demoMoves.winnerMoves);
+            }
+        }
 
-        for(Integer i : this.winningMoves.winnerMoves) {
+
+
+        for(Integer i : this.demoMoves.winnerMoves) {
             this.gameBoard.makeMove(demoConfigDataHolder.winningPlayer(), i);
         }
         for(int i = 0; i < demoConfigDataHolder.winningCondition(); i++) {
             Random rand = new Random();
-            int randomElement = winningMoves.loserMoves.get(rand.nextInt(1, winningMoves.loserMoves.size()));
+            int randomElement = demoMoves.loserMoves.get(rand.nextInt(1, demoMoves.loserMoves.size()));
             if(demoConfigDataHolder.winningPlayer() instanceof PlayerO) {
                 this.gameBoard.makeMove(demoConfigDataHolder.playerX(), randomElement);
             } else {
@@ -65,9 +77,5 @@ public class Demo {
             }
 
         }
-    }
-
-    private Player changeTurn(Player starter) {
-        return starter instanceof PlayerX ? this.demoConfigDataHolder.playerO() : this.demoConfigDataHolder.playerX();
     }
 }
