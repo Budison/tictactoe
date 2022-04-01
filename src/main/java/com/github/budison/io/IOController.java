@@ -5,9 +5,9 @@ import com.github.budison.Player;
 import com.github.budison.PlayerO;
 import com.github.budison.PlayerX;
 import com.github.budison.board.BoardDimension;
-import com.github.budison.board.GameBoard;
 
 import java.util.Map;
+import java.util.Scanner;
 
 /**
  * @author Kevin Nowak
@@ -17,9 +17,9 @@ public class IOController {
     private final IOGameConfiguration ioGameConfiguration;
     private final IOGamePlay ioGamePlay;
 
-    public IOController() {
-        this.ioGameConfiguration = new IOGameConfiguration();
-        this.ioGamePlay = new IOGamePlay();
+    public IOController(Scanner scanner) {
+        this.ioGameConfiguration = new IOGameConfiguration(scanner);
+        this.ioGamePlay = new IOGamePlay(scanner);
     }
 
     public String getStateStartedMessage(String gameState) {

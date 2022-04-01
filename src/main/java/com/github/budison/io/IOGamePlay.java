@@ -12,6 +12,11 @@ import java.util.Scanner;
  */
 class IOGamePlay {
     private int boardSize;
+    final Scanner scanner;
+
+    public IOGamePlay(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
     public int getPlayerMove(Player player, Map<Integer, String> boardMap) {
         this.boardSize = boardMap.size();
@@ -34,9 +39,8 @@ class IOGamePlay {
     }
 
     int getPlayerMoveScanner(Map<Integer, String> boardMap) {
-        Scanner in = new Scanner(System.in);
         while (true) {
-            String cellString = in.next();
+            String cellString = this.scanner.next();
             try {
                 int cellInt = Integer.parseInt(cellString);
                 if(1 <= cellInt && cellInt <= this.boardSize && boardMap.get(cellInt).equalsIgnoreCase("EMPTY")) {
@@ -90,9 +94,8 @@ class IOGamePlay {
     }
 
     private boolean playMoreScanner() {
-        Scanner in = new Scanner(System.in);
         while (true) {
-            String answer = in.next();
+            String answer = scanner.next();
             try {
                 if(answer.equalsIgnoreCase("y") || answer.equalsIgnoreCase("j")) {
                     return true;

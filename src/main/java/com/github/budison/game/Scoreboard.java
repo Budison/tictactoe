@@ -8,8 +8,8 @@ import com.github.budison.PlayerX;
  * @author Kevin Nowak
  */
 class Scoreboard {
-    PlayerX playerX;
-    PlayerO playerO;
+    final PlayerX playerX;
+    final PlayerO playerO;
     int scoreX;
     int scoreO;
 
@@ -29,11 +29,16 @@ class Scoreboard {
         }
         return this;
     }
+
     Scoreboard addDraw() {
         this.scoreX += 1;
         this.scoreO += 1;
 
         return this;
+    }
+
+    Player getWinnerPlayer() {
+        return scoreO > scoreX ? playerO : playerX;
     }
 
     @Override

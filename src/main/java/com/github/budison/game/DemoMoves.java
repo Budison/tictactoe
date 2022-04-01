@@ -7,10 +7,10 @@ import java.util.List;
  * @author Kevin Nowak
  */
 class DemoMoves {
-    DemoConfigDataHolder demoConfigDataHolder;
-    int dimension;
-    int condition;
-    int winningLine;
+    final DemoConfigDataHolder demoConfigDataHolder;
+    final int dimension;
+    final int condition;
+    final int winningLine;
     List<Integer> winnerMoves;
     List<Integer> loserMoves;
 

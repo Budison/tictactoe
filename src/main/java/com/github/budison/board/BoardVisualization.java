@@ -1,15 +1,13 @@
 package com.github.budison.board;
 
-import java.util.Map;
-
 /**
  * @author Kevin Nowak
  */
 class BoardVisualization {
     BoardMap boardMap;
     String boardVisualization;
-    int boardSize;
-    BoardDimension boardDimension;
+    final int boardSize;
+    final BoardDimension boardDimension;
     BoardVisualization(BoardMap boardMap, BoardDimension boardDimension) {
         this.boardMap = boardMap;
         this.boardDimension = boardDimension;

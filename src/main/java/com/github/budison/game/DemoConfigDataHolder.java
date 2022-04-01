@@ -9,7 +9,7 @@ import com.github.budison.board.BoardDimension;
 /**
  * @author Kevin Nowak
  */
-record DemoConfigDataHolder(
+public record DemoConfigDataHolder(
         PlayerX playerX,
         PlayerO playerO,
         BoardDimension boardDimension,
