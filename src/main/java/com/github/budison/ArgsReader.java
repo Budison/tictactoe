@@ -46,6 +46,7 @@ public class ArgsReader {
             ret = Integer.parseInt(arg);
         } catch (NumberFormatException numberFormatException) {
             System.err.println("BoardDimension: Provided String could not be formatted to int.");
+            throw new NumberFormatException(); // throw for test needed
         }
         return ret;
     }

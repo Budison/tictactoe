@@ -15,6 +15,11 @@ class IOGameConfiguration {
     private PlayerX playerX;
     private PlayerO playerO;
     int boardDimension;
+    final Scanner scanner;
+
+    public IOGameConfiguration(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
     //--------- Read LanguageType form user ---------//
 
@@ -29,12 +34,11 @@ class IOGameConfiguration {
     }
 
     private int getLanguageTypeScanner() {
-        Scanner in = new Scanner(System.in);
         int inputInt = 1;
         boolean repeat = true;
         while (repeat) {
             repeat = false;
-            String input = in.next();
+            String input = scanner.next();
             try {
                 inputInt = Integer.parseInt(input);
                 if(inputInt > 2 || inputInt < 1) {
@@ -62,7 +66,7 @@ class IOGameConfiguration {
                     """;
         }
         System.out.print(prompt);
-        return this.playerX = new PlayerX(new Scanner(System.in).next(), 'X');
+        return this.playerX = new PlayerX(scanner.next(), 'X');
     }
 
     PlayerO getPlayerO() {
@@ -77,7 +81,7 @@ class IOGameConfiguration {
                     """;
         }
         System.out.print(prompt);
-        return this.playerO = new PlayerO(new Scanner(System.in).next(), 'O');
+        return this.playerO = new PlayerO(this.scanner.next(), 'O');
     }
 
     //--------- Read startingPlayer form user ---------//
@@ -98,9 +102,8 @@ class IOGameConfiguration {
     }
 
     private Player getPlayerScanner() {
-        Scanner in = new Scanner(System.in);
         while (true) {
-            String playerString = in.next();
+            String playerString = scanner.next();
             try {
                 return switch (playerString.toLowerCase()) {
                     case "x" -> this.playerX;
@@ -131,9 +134,8 @@ class IOGameConfiguration {
     }
 
     private BoardDimension getBoardDimensionScanner() {
-        Scanner in = new Scanner(System.in);
         while (true) {
-            String boardDimensionIn = in.next();
+            String boardDimensionIn = scanner.next();
             try {
                 int boardDimension = Integer.parseInt(boardDimensionIn);
                 if(3 <= boardDimension && boardDimension <= 31) {
@@ -166,9 +168,8 @@ class IOGameConfiguration {
     }
 
     private int getWinningConditionScanner() {
-        Scanner in = new Scanner(System.in);
         while (true) {
-            String winningConditionIn = in.next();
+            String winningConditionIn = scanner.next();
             try {
                 int winningCondition = Integer.parseInt(winningConditionIn);
                 if(3 <= winningCondition && winningCondition <= this.boardDimension) {

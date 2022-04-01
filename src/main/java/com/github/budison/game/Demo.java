@@ -5,6 +5,7 @@ import com.github.budison.board.GameBoard;
 import com.github.budison.io.IOController;
 
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * @author Kevin Nowak
@@ -13,11 +14,11 @@ public class Demo {
     private final LanguageType languageType = LanguageType.EN;
     private final DemoConfigDataHolder demoConfigDataHolder;
     GameState gameState;
-    GameBoard gameBoard;
-    IOController ioController;
-    DemoMoves demoMoves;
+    final GameBoard gameBoard;
+    final IOController ioController;
+    final DemoMoves demoMoves;
 
-    public Demo(ArgsReader argsReader) {
+    public Demo(ArgsReader argsReader, Scanner scanner) {
         this.demoConfigDataHolder = new DemoConfigDataHolder(
                 new PlayerX("PlayerX", 'X'),
                 new PlayerO("PlayerO", 'O'),
@@ -31,15 +32,16 @@ public class Demo {
         this.demoMoves = new DemoMoves(this.demoConfigDataHolder);
         this.gameState = GameState.CONFIGURATION;
         this.gameBoard = new GameBoard(this.demoConfigDataHolder.boardDimension());
-        this.ioController = new IOController();
+        this.ioController = new IOController(scanner);
         System.out.println(this.ioController.getStateFinishedMessage(this.gameState.toString()));
     }
 
-    public void startPlaying() {
+    public int startPlaying() {
         this.playRound();
         System.out.println(this.gameBoard.toString());
         this.gameState = GameState.GAME;
         System.out.println(this.ioController.getStateFinishedMessage(this.gameState.toString()));
+        return 1;
     }
 
     private void playRound() {

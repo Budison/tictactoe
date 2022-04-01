@@ -1,0 +1,6 @@
+15:31:03.733 INFO: Configuration finished
+15:31:03.736 INFO: Round 1 started
+15:31:03.741 INFO: Round 2 started
+15:31:03.743 INFO: Round 3 started
+15:31:03.744 INFO: Game finished
+15:31:03.744 INFO: PlayerX has won

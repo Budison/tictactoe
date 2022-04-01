@@ -3,26 +3,31 @@ package com.github.budison;
 import com.github.budison.game.Demo;
 import com.github.budison.game.Game;
 
+import java.util.Scanner;
+
 /**
  * @author Kevin Nowak
  */
 class Main {
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         switch (selectRunMode(args)) {
             case DEMO_NO_ARGS -> {
                 ArgsReader argsReader = new ArgsReader(new String[] {"4", "4", "X", "O", "horizontal", "1"});
-                Demo demo = new Demo(argsReader);
+                Demo demo = new Demo(argsReader, scanner);
                 demo.startPlaying();
+                return;
             }
             case DEMO_WITH_ARGS -> {
                 ArgsReader argsReader = new ArgsReader(args);
-                Demo demo = new Demo(argsReader);
+                Demo demo = new Demo(argsReader, scanner);
                 demo.startPlaying();
+                return;
             }
             default -> {
-                Game game = new Game();
-                game.startConfiguration();
+                Game game = new Game(scanner);
+                game.startConfiguration(scanner);
                 do {
                     game.startPlaying();
                 } while (game.playMore());
@@ -42,4 +47,4 @@ class Main {
         }
         return RunMode.NORMAL;
     }
-}	
+}

@@ -17,7 +17,7 @@ public class GameBoard {
     public GameBoard(BoardDimension boardDimension) {
         this.boardMap = new BoardMap(boardDimension);
         this.boardVisualization = new BoardVisualization(this.boardMap, boardDimension);
-        this.ioController = new IOController();
+        //this.ioController = new IOController();
     }
 
     public GameBoard makeMove(Player player, int index) {
